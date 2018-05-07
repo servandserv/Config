@@ -1,14 +1,14 @@
 <?php
 
-namespace com\servandserv;
+namespace com\servandserv\config;
 
 /**
  *
  * example:
- * ConfigReader::read("web.xml", "context.xml");
+ * Reader::load("web.xml", "context.xml");
  *
  */
-class ConfigReader 
+class Reader 
 {
 
     const unixHome = "HOME";

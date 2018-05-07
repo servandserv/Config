@@ -1,8 +1,8 @@
 <?php
 
-namespace com\servandserv;
+namespace com\servandserv\config;
 
-abstract class Config
+class Locator implements ServiceLocator
 {
     private static $instance;
     private $env = [];
@@ -36,7 +36,8 @@ abstract class Config
     
     public function set( $prop, $val )
     {
-        $_SERVER[$prop] = $val;
+        $this->env[$prop] = $val;
+        return $this;
     }
     
     public function create( $prop, array $args = [], callable $cb = NULL ) 
