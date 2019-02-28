@@ -44,7 +44,7 @@ class Locator implements ServiceLocator
     {
         if( isset( $this->env[$prop] ) ) {
             $isInvokable = is_object( $this->env[$prop] ) && method_exists( $this->env[$prop], "__invoke" );
-            if( $isInvokable ) $obj = call_user_func( $this->env[$prop], $args );
+            if( $isInvokable ) $obj = call_user_func_array( $this->env[$prop], $args );
             else $obj = $this->env[$prop];
             if( $cb ) {
                 return call_user_func_array( $cb, array( $obj ) );
